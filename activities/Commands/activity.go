@@ -46,24 +46,38 @@ func (a *Activity) Eval(ctx activity.Context) (done bool, err error) {
 		return true, err
 	}
 
-	if (input.Lux >= 150 ) { //day
-		strCommands += "/TOD1" 
-	}else {
-		strCommands += "/FOD1"
+	if(input.Lux >=150){ 			 				//DAY
+		if (input.Lux >= 200 ) { 				//CRITICAL
+			strCommands += "/TOD1" 
+		}else {
+			strCommands += "/FOD1"
+		}
+
+		if(input.Temperature >= 30){ 		//CRITICAL
+			strCommands += "/TOD2"
+		}else {
+			strCommands += "/FOD2"
+		}
+
+		if(input.Humidity >= 50){ 			//CRITICAL
+			strCommands += "/TOD3"
+		}else {
+			strCommands += "/FOD3"
+		}
+	}else {														//NIGHT
+		strCommands += "/FOD1"				  //NO SIGNAL					
+		if(input.Temperature <= 20){ 		//CRITICAL
+			strCommands += "/TOD2"
+		}else {
+			strCommands += "/FOD2"
+		}
+		if(input.Humidity >= 50){ 			//CRITICAL
+			strCommands += "/TOD3"
+		}else {
+			strCommands += "/FOD3"
+		}
 	}
 
-
-	if(input.Temperature >= 30){
-		strCommands += "/TOD2"
-	}else {
-		strCommands += "/FOD2"
-	}
-
-		// if(input.Humidity >= 50){
-		// 	strCommands += "/TOD3"
-		// }else {
-		// 	strCommands += "/FOD3"
-		// }
 
 
 	output := &Output{

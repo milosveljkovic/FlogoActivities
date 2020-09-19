@@ -21,9 +21,9 @@ func TestEval(t *testing.T) {
 	act := &Activity{}
 	tc := test.NewActivityContext(act.Metadata())
 	input := &Input{
-					Lux: 1111,
+					Lux: 10,
 					Humidity: 50,
-					Temperature: 100,
+					Temperature: 10,
 	}
 
 	err := tc.SetInputObject(input)
@@ -36,5 +36,5 @@ func TestEval(t *testing.T) {
 	output := &Output{}
 	err = tc.GetOutputObject(output)
 	assert.Nil(t, err)
-	assert.Equal(t, "/TOD1/TOD2", output.Commands)
+	assert.Equal(t, "/FOD1/TOD2/TOD3", output.Commands)
 }
