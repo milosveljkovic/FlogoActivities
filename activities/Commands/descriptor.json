@@ -1,0 +1,38 @@
+{
+  "name": "check-commands",
+  "type": "flogo:activity",
+  "version": "0.0.1",
+  "title": "Check Commands",
+  "description": "Check Commands",
+  "homepage": "https://github.com/milosveljkovic/FlogoActivities/activities/Commands",
+  "settings": [
+    {
+      "name": "aSetting",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "input": [
+    {
+      "name": "lux",
+      "type": "integer",
+      "required": true
+    },
+    {
+      "name": "humidity",
+      "type": "integer",
+      "required": true
+    },
+    {
+      "name": "temperature",
+      "type": "integer",
+      "required": true
+    }
+  ],
+  "output": [
+    {
+      "name": "commands",
+      "type": "string"
+    }
+  ]
+}
