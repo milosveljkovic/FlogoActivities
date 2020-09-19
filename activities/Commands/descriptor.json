@@ -1,9 +1,9 @@
 {
   "name": "check-commands",
   "type": "flogo:activity",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "title": "Check Commands",
-  "description": "Check Commands",
+  "description": "Check Commands 0.0.2",
   "homepage": "https://github.com/milosveljkovic/FlogoActivities/activities/Commands",
   "settings": [
     {
